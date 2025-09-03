@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="fr" class="dark scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HODIA Essotom · H4Techno</title>
+
+  <!-- SEO -->
+  <meta name="description" content="HODIA Essotom (H4Techno) — Développeur Full-Stack. Spring Boot, Angular, PostgreSQL. Des applications stables, rapides et maintenables." />
+  <meta property="og:title" content="HODIA Essotom · H4Techno" />
+  <meta property="og:description" content="La résilience c'est transformer chaque défi en opportunité." />
+  <meta property="og:image" content="assets/og/og-preview.png" />
+  <meta name="theme-color" content="#0B1220" />
+
+  <!-- Fonts (Space Grotesk + Inter) -->
+  <link href="https://fonts.bunny.net/css?family=space-grotesk:400,500,600,700|inter:400,500,600,700" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config: palette sombre mais lumineuse
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            base: {
+              900: '#0B1220',
+              800: '#111827',
+              700: '#1F2937'
+            },
+            text: {
+              DEFAULT: '#E5E7EB',
+              muted: '#A1A1AA'
+            },
+            brand: {
+              violet: '#7C3AED',
+              cyan: '#22D3EE',
+              amber: '#E19B19',
+              ring: '#8B5CF6'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 0 3px rgba(124,58,237,0.25), 0 0 30px rgba(34,211,238,0.15)'
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  
+</head>
+
+<body class="bg-base-900 text-text font-sans selection:bg-brand-violet/40">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-base-900/70 backdrop-blur-lg">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-brand-violet/20 ring-1 ring-brand-ring flex items-center justify-center">
+          <span class="font-display text-lg tracking-wide">H4</span>
+        </div>
+        <div class="leading-tight">
+          <div class="font-display font-semibold">H4Techno</div>
+          <div class="text-xs text-text-muted">HODIA Essotom</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm">
+        <a href="#about" class="hover:text-white" data-i18n="nav_about">À propos</a>
+        <a href="#skills" class="hover:text-white" data-i18n="nav_skills">Compétences</a>
+        <a href="#services" class="hover:text-white" data-i18n="nav_services">Services</a>
+        <a href="#projects" class="hover:text-white" data-i18n="nav_projects">Projets</a>
+        <a href="#resume" class="hover:text-white" data-i18n="nav_resume">CV</a>
+        <a href="#contact" class="hover:text-white" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <!-- Lang switch -->
+        <button id="langBtn" class="px-3 py-1.5 text-xs rounded-lg border border-white/10 hover:border-white/20">
+          FR / EN
+        </button>
+        <!-- Dark switch -->
+        <button id="themeBtn" class="px-3 py-1.5 text-xs rounded-lg border border-white/10 hover:border-white/20">
+          <i class="ri-moon-line"></i>
+        </button>
+        <button class="md:hidden p-2" id="menuBtn" aria-label="Menu">
+          <i class="ri-menu-3-line text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/5">
+      <nav class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#about" class="hover:text-white" data-i18n="nav_about">À propos</a>
+        <a href="#skills" class="hover:text-white" data-i18n="nav_skills">Compétences</a>
+        <a href="#services" class="hover:text-white" data-i18n="nav_services">Services</a>
+        <a href="#projects" class="hover:text-white" data-i18n="nav_projects">Projets</a>
+        <a href="#resume" class="hover:text-white" data-i18n="nav_resume">CV</a>
+        <a href="#contact" class="hover:text-white" data-i18n="nav_contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="grad-hero">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-brand-cyan text-sm font-medium mb-3 tracking-wide" data-i18n="hero_tag">Développeur Full-Stack</p>
+        <h1 class="font-display text-4xl md:text-5xl font-semibold leading-tight">
+          <span data-i18n="hero_title_1" data-intro data-animate="fade-up" >Spring Boot, Angular, PostgreSQL.</span><br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet to-brand-cyan" data-i18n="hero_title_2" data-intro data-animate="fade-up" data-delay="120">Des applis stables, rapides et maintenables.</span>
+        </h1>
+        <p class="mt-5 text-text-muted max-w-xl" data-i18n="hero_sub">
+          La résilience c'est transformer chaque défi en opportunité.
+        </p>
+
+        <div class="mt-8 flex items-center gap-4">
+          <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-violet hover:shadow-glow">
+            <i class="ri-rocket-2-line"></i><span data-i18n="cta_projects">Voir mes projets</span>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">
+            <i class="ri-send-plane-line"></i><span data-i18n="cta_contact">Me contacter</span>
+          </a>
+        </div>
+
+        <div class="mt-8 flex items-center gap-5 text-lg">
+          <a href="https://github.com/H4FullStackDev" class="hover:text-white" aria-label="GitHub"><i class="ri-github-line"></i></a>
+          <a href="https://www.linkedin.com/in/essotom-hodia-84aab6279" class="hover:text-white" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+          <a href="mailto:dimitrihodia0@gmail.com" class="hover:text-white" aria-label="Email"><i class="ri-mail-line"></i></a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl blur-3xl bg-gradient-to-tr from-brand-violet/30 to-brand-cyan/30"></div>
+        <div class="relative glass rounded-3xl p-2">
+          <img src="assets/profile.webp" alt="HODIA Essotom" class="rounded-2xl w-full object-cover aspect-[4/4.3]">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À propos -->
+  <section id="about" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10 items-start">
+      <div class="md:col-span-1">
+        <h2 class="font-display text-2xl" data-i18n="about_title">À propos</h2>
+        <p class="text-text-muted mt-2" data-i18n="about_tag">Qui je suis et ce que je fais</p>
+      </div>
+      <div class="md:col-span-2 space-y-4 leading-relaxed text-text">
+        <p data-i18n="about_p1">
+          Je m’appelle HODIA Essotom, développeur d’applications avec 2 ans d’expérience. Je conçois des logiciels modernes avec Spring Boot et Angular.
+        </p>
+        <p data-i18n="about_p2">
+          J’ai contribué à Compta Pro Art, utilisé par des milliers d’utilisateurs en Afrique, et j’évolue chez DATA School (Data24, Maroc) sur une plateforme de gestion scolaire adoptée par plus de 100 établissements.
+        </p>
+        <p data-i18n="about_p3">
+          J’interviens sur l’analyse des besoins, le développement, la maintenance et l’évolution continue, avec un souci de performance, sécurité et lisibilité du code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="skills" class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="font-display text-2xl" data-i18n="skills_title">Compétences</h2>
+          <p class="text-text-muted" data-i18n="skills_tag">Technos que j’utilise au quotidien</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-animate="fade-up" data-stagger-group="skills">
+        <!-- Frontend -->
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-3" data-i18n="skills_front">Frontend</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>Angular · TypeScript · HTML/CSS</li>
+          </ul>
+        </div>
+
+        <!-- Backend -->
+        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
+          <h3 class="font-display mb-3" data-i18n="skills_back">Backend</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>Spring Boot · Django REST · NestJS · Java · Python · JavaScript</li>
+          </ul>
+        </div>
+
+        <!-- Bases de données -->
+        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
+          <h3 class="font-display mb-3" data-i18n="skills_db">Bases de données</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>PostgreSQL · MySQL · MongoDB · SQL</li>
+          </ul>
+        </div>
+
+        <!-- Outils -->
+        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
+          <h3 class="font-display mb-3" data-i18n="skills_tools">Outils</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>Git · Docker</li>
+          </ul>
+        </div>
+
+        <!-- Langues -->
+        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
+          <h3 class="font-display mb-3" data-i18n="skills_lang">Langues</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>Français, Anglais</li>
+          </ul>
+        </div>
+
+        <!-- Intérêts -->
+        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
+          <h3 class="font-display mb-3" data-i18n="skills_hobby">Centres d’intérêt</h3>
+          <ul class="space-y-2 text-text-muted">
+            <li>Sport · Lecture · Musique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="font-display text-2xl" data-i18n="services_title">Services</h2>
+          <p class="text-text-muted" data-i18n="services_tag">Ce que je peux faire pour vous</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-2" data-i18n="s1_title">Conception d’applications modernes</h3>
+          <p class="text-text-muted" data-i18n="s1_desc">De l’idée au déploiement, avec une architecture claire et des tests.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-2" data-i18n="s2_title">Sites web modernes</h3>
+          <p class="text-text-muted" data-i18n="s2_desc">Sites vitrines rapides, accessibles et responsive.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-2" data-i18n="s3_title">Montage vidéo</h3>
+          <p class="text-text-muted" data-i18n="s3_desc">Mises en forme propres pour présentations et réseaux.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-2" data-i18n="s4_title">Conception de logos</h3>
+          <p class="text-text-muted" data-i18n="s4_desc">Wordmarks simples et identités minimales pour démarrer vite.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="font-display mb-2" data-i18n="s5_title">Installation & maintenance</h3>
+          <p class="text-text-muted" data-i18n="s5_desc">Mise en place et suivi des outils informatiques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projects" class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="font-display text-2xl" data-i18n="projects_title">Projets</h2>
+          <p class="text-text-muted" data-i18n="projects_tag">Sélection récente</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Compta Pro Art -->
+        <article class="glass rounded-2xl overflow-hidden" data-animate="fade-right">
+          <img src="assets/projects/compta-1.webp" alt="Compta Pro Art" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-3">
+            <h3 class="font-display text-xl">Compta Pro Art</h3>
+            <p class="text-text-muted text-sm" data-i18n="p1_desc">
+              Application de comptabilité simplifiée. Django REST + Angular.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Django REST</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Angular</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">PostgreSQL</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-brand-cyan hover:text-white text-sm"
+               href="https://comptaproart.com/" target="_blank" rel="noopener">
+              <i class="ri-external-link-line"></i><span data-i18n="proj_live">Site</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- DATA School -->
+        <article class="glass rounded-2xl overflow-hidden" data-animate="fade-left">
+          <img src="assets/projects/dataschool-1.webp" alt="DATA School" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-3">
+            <h3 class="font-display text-xl">DATA School</h3>
+            <p class="text-text-muted text-sm" data-i18n="p2_desc">
+              Contribution maintenance et évolution. Spring Boot, Angular, PostgreSQL, Docker.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Spring Boot</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Angular</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">PostgreSQL</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Docker</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-brand-cyan hover:text-white text-sm"
+               href="https://data24.ma/" target="_blank" rel="noopener">
+              <i class="ri-external-link-line"></i><span data-i18n="proj_live">Site</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Requisition Management -->
+        <article class="glass rounded-2xl overflow-hidden" data-animate="fade-right">
+          <img src="assets/projects/req-1.webp" alt="Requisition Management" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-3">
+            <h3 class="font-display text-xl">Requisition Management</h3>
+            <p class="text-text-muted text-sm" data-i18n="p3_desc">
+              Application de gestion des réquisitions et livraisons. Spring Boot, Angular, PostgreSQL.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Spring Boot</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Angular</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">PostgreSQL</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-text-muted text-sm">
+              <i class="ri-hourglass-2-line"></i><span data-i18n="proj_soon">Lien à venir</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Smart Design Service -->
+        <article class="glass rounded-2xl overflow-hidden" data-animate="fade-left">
+          <img src="assets/projects/sds-1.webp" alt="Smart Design Service" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-3">
+            <h3 class="font-display text-xl">Smart Design Service</h3>
+            <p class="text-text-muted text-sm" data-i18n="p4_desc">
+              Site de services (formations, vente). Laravel + Angular + MySQL.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Laravel</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">Angular</span>
+              <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10">MySQL</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-brand-cyan hover:text-white text-sm"
+               href="https://www.smartdesigns-service.com/client/boutique" target="_blank" rel="noopener">
+              <i class="ri-external-link-line"></i><span data-i18n="proj_live">Site</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="resume" class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-2xl" data-i18n="resume_title">Curriculum Vitae</h2>
+      <p class="text-text-muted mt-2" data-i18n="resume_tag">Version PDF à jour</p>
+      <a href="assets/cv/cv-hodia.pdf" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">
+        <i class="ri-download-2-line"></i><span data-i18n="resume_btn">Télécharger mon CV</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 class="font-display text-2xl" data-i18n="contact_title">Contact</h2>
+          <p class="text-text-muted mt-2" data-i18n="contact_tag">Discutons de votre projet</p>
+
+          <ul class="mt-6 space-y-3 text-text">
+            <li class="flex items-center gap-3"><i class="ri-mail-line text-brand-cyan"></i> dimitrihodia0@gmail.com</li>
+            <li class="flex items-center gap-3"><i class="ri-phone-line text-brand-cyan"></i> +228 98 96 08 19</li>
+            <li class="flex items-center gap-3"><i class="ri-map-pin-2-line text-brand-cyan"></i> Lomé, Togo</li>
+          </ul>
+        </div>
+
+        <form id="contactForm" class="glass p-6 rounded-2xl">
+          <div class="grid grid-cols-1 gap-4">
+            <div>
+              <label class="text-sm text-text-muted" data-i18n="f_name">Nom</label>
+              <input type="text" name="name" class="mt-1 w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2" required />
+            </div>
+            <div>
+              <label class="text-sm text-text-muted" data-i18n="f_email">Email</label>
+              <input type="email" name="email" class="mt-1 w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2" required />
+            </div>
+            <div>
+              <label class="text-sm text-text-muted" data-i18n="f_subject">Sujet</label>
+              <input type="text" name="subject" class="mt-1 w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2" required />
+            </div>
+            <div>
+              <label class="text-sm text-text-muted" data-i18n="f_message">Message</label>
+              <textarea name="message" rows="5" class="mt-1 w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2" required></textarea>
+            </div>
+            <button class="mt-2 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-violet hover:shadow-glow">
+              <i class="ri-send-plane-line"></i><span data-i18n="f_send">Envoyer</span>
+            </button>
+          </div>
+          <p id="formNote" class="mt-3 text-xs text-text-muted" data-i18n="f_note">Le bouton ouvre votre client mail (mailto).</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-text-muted flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>&copy; <span id="year"></span> H4Techno — HODIA Essotom</p>
+      <p data-i18n="footer_loc">Basé à Lomé, Togo</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
