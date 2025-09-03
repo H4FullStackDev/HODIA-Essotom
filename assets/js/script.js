@@ -51,7 +51,21 @@
         resume_title:"Curriculum Vitae", resume_tag:"Version PDF à jour", resume_btn:"Télécharger mon CV",
         contact_title:"Contact", contact_tag:"Discutons de votre projet",
         f_name:"Nom", f_email:"Email", f_subject:"Sujet", f_message:"Message", f_send:"Envoyer", f_note:"Le bouton ouvre votre client mail (mailto).",
-        footer_loc:"Basé à Lomé, Togo"
+        footer_loc:"Basé à Lomé, Togo",
+        about_badge_location: "Lomé, Togo",
+        about_badge_experience: "2 ans d’expérience",
+        about_badge_available: "Dispo mission",
+        about_list_stack: "Stack coeur: Spring Boot, Angular, PostgreSQL",
+        about_list_priorities: "Priorités: performance, sécurité, code propre",
+        about_list_team: "Habitué aux cycles agile, CI, revues de code",
+        about_kpi_users: "Utilisateurs",
+        about_kpi_years: "Années d’expérience",
+        about_kpi_projects: "Projets majeurs",
+        about_t1_title: "DATA School (Data24)",
+        about_t1_text: "Maintenance & évolution sur une plateforme de gestion scolaire (Spring Boot, Angular, PostgreSQL, Docker).",
+        about_t2_title: "Compta Pro Art",
+        about_t2_text: "Application de comptabilité simplifiée (Django REST, Angular).",
+
       },
       en: {
         nav_about:"About", nav_skills:"Skills", nav_services:"Services", nav_projects:"Projects", nav_resume:"Resume", nav_contact:"Contact",
@@ -79,7 +93,21 @@
         resume_title:"Resume", resume_tag:"Latest PDF version", resume_btn:"Download my Resume",
         contact_title:"Contact", contact_tag:"Let's talk about your project",
         f_name:"Name", f_email:"Email", f_subject:"Subject", f_message:"Message", f_send:"Send", f_note:"This button opens your mail client (mailto).",
-        footer_loc:"Based in Lomé, Togo"
+        footer_loc:"Based in Lomé, Togo",
+        about_badge_location: "Lomé, Togo",
+        about_badge_experience: "2 years experience",
+        about_badge_available: "Open to missions",
+        about_list_stack: "Core stack: Spring Boot, Angular, PostgreSQL",
+        about_list_priorities: "Priorities: performance, security, clean code",
+        about_list_team: "Used to agile cycles, CI, code reviews",
+        about_kpi_users: "Users",
+        about_kpi_years: "Years of experience",
+        about_kpi_projects: "Major projects",
+        about_t1_title: "DATA School (Data24)",
+        about_t1_text: "Maintenance & evolution on a school management platform (Spring Boot, Angular, PostgreSQL, Docker).",
+        about_t2_title: "Compta Pro Art",
+        about_t2_text: "Simplified accounting app (Django REST, Angular).",
+
       }
     };
 
@@ -99,7 +127,7 @@
     applyI18n();
     /* ====== Intersection Observer pour révéler les éléments ====== */
 (function () {
-    const els = Array.from(document.querySelectorAll("[data-animate]"));
+    const els = Array.from(document.querySelectorAll("[data-animate]:not([data-typer])"));
     if (!("IntersectionObserver" in window) || els.length === 0) {
       els.forEach(el => el.classList.add("in-view"));
       return;
@@ -131,11 +159,127 @@
     });
   
     // Optionnel: animation d’intro sur le héros
-    window.addEventListener("load", () => {
-      document.querySelectorAll("[data-intro]").forEach((el, i) => {
+    document.querySelectorAll("[data-intro]:not([data-typer])").forEach((el, i) => {
         el.style.transitionDelay = `${i * 90}ms`;
         el.classList.add("in-view");
       });
-    });
   })();
+
+
+  // === Typewriter util ===
+  function typeIt(el, text, { speed = 24, startDelay = 0 } = {}) {
+    return new Promise((resolve) => {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!el) return resolve();
+  
+      // Rendre visible uniquement au moment de taper, et déclencher le fade-up
+      el.style.visibility = "visible";
+      el.classList.add("in-view");
+  
+      if (reduce) { el.textContent = text; return resolve(); }
+  
+      el.classList.add("is-typing");
+      el.textContent = "";
+  
+      let i = 0;
+      const tick = () => {
+        if (i < text.length) {
+          const ch = text.charAt(i++);
+          el.textContent += ch;
+          setTimeout(tick, ch === " " ? speed * 0.6 : speed);
+        } else {
+          el.classList.remove("is-typing");
+          resolve();
+        }
+      };
+      setTimeout(tick, startDelay);
+    });
+  }
+  
+  
+  // Tape les 2 lignes du héros d’après les traductions courantes
+  async function typeHero() {
+    const el1 = document.querySelector('[data-i18n="hero_title_1"][data-typer]');
+    const el2 = document.querySelector('[data-i18n="hero_title_2"][data-typer]');
+    if (!el1 || !el2) return;
+  
+    // Récupère les textes présents (mis à jour par applyI18n) pour rester compatible
+    const t1 = el1.textContent.trim();
+    const t2 = el2.textContent.trim();
+  
+    // Tape avec vitesses configurables
+    const s1 = Number(el1.dataset.typeSpeed) || 24;
+    const s2 = Number(el2.dataset.typeSpeed) || 22;
+  
+    await typeIt(el1, t1, { speed: s1, startDelay: 100 });
+    await typeIt(el2, t2, { speed: s2, startDelay: 80 });
+  }
+  
+  // Lancement initial après chargement
+  window.addEventListener("load", () => {
+    // Laisse ton animation d’intro se poser, puis tape
+    setTimeout(typeHero, 50);
+  });
+  
+  // Quand tu changes la langue FR/EN, on relance la frappe
+  const langBtn = document.getElementById("langBtn");
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
+    // Laisse applyI18n mettre à jour le texte
+    setTimeout(() => {
+      document.querySelectorAll("[data-typer]").forEach(el => el.style.visibility = "hidden");
+      typeHero(); // retape dans l'ordre
+    }, 30);
+  });
+}
+
+// Compteurs "À propos" — supporte prefix/suffix/decimals/duration/start
+(function () {
+    const els = [...document.querySelectorAll(".kpi-num[data-counter]")];
+    if (els.length === 0) return;
+  
+    const ease = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+  
+        const end = parseFloat(target.dataset.counter || "0");
+        const start = parseFloat(target.dataset.start || "0");
+        const decimals = parseInt(target.dataset.decimals || "0", 10);
+        const duration = parseInt(target.dataset.duration || "900", 10);
+        const prefix = target.dataset.prefix || "";
+        const suffix = target.dataset.suffix || "";
+        const fmt = new Intl.NumberFormat(undefined, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        });
+  
+        // Cas accessibilité: pose directement la valeur finale
+        if (reduce) {
+          target.textContent = `${prefix}${fmt.format(end)}${suffix}`;
+          obs.unobserve(target);
+          return;
+        }
+  
+        const t0 = performance.now();
+        function step(now) {
+          const p = Math.min(1, (now - t0) / duration);
+          const v = start + (end - start) * ease(p);
+          target.textContent = `${prefix}${fmt.format(v)}${suffix}`;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+  
+        obs.unobserve(target);
+      });
+    }, { threshold: 0.2 });
+  
+    els.forEach(el => io.observe(el));
+  })();
+  
+  
+
+  
   

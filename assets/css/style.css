@@ -48,4 +48,179 @@
       transform: none !important;
     }
   }
+
+  /* === Typewriter minimal === */
+.typer {
+    white-space: pre-wrap;
+    position: relative;
+  }
+  
+  /* Curseur clignotant pendant la frappe */
+  .typer.is-typing::after {
+    content: "";
+    display: inline-block;
+    width: 0.08em;
+    height: 1em;
+    margin-left: 0.06em;
+    background: currentColor;
+    vertical-align: -0.1em;
+    animation: typer-blink 1s steps(1) infinite;
+  }
+  
+  @keyframes typer-blink { 50% { opacity: 0; } }
+  
+  /* Accessibilité: si l’utilisateur préfère moins d’animations */
+  @media (prefers-reduced-motion: reduce) {
+    .typer { transition: none !important; }
+    .typer.is-typing::after { animation: none !important; }
+  }
+  
+  /* Empêche l'apparition avant que le script ne démarre la frappe */
+.typer[data-typer] { visibility: hidden; }
+
+/* Le curseur clignotant, déjà vu */
+.typer.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em; height: 1em;
+  margin-left: 0.06em; background: currentColor;
+  vertical-align: -0.1em; animation: typer-blink 1s steps(1) infinite;
+}
+@keyframes typer-blink { 50% { opacity: 0; } }
+
+
+/* === Cards interactives (clair en dark) === */
+.card {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.25rem;           /* p-5 */
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(6px);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s, background .35s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.22);
+    background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    box-shadow: 0 8px 28px rgba(124,58,237,0.18), 0 2px 8px rgba(34,211,238,0.12);
+  }
+  
+  /* Halo dégradé subtil autour de la carte au hover */
+  .card::before {
+    content: "";
+    position: absolute; inset: -1px;
+    border-radius: inherit;
+    background: conic-gradient(from 180deg, #7C3AED, #22D3EE, #7C3AED);
+    filter: blur(14px);
+    opacity: 0; transition: opacity .4s;
+    z-index: -1;
+  }
+  .card:hover::before { opacity: .45; }
+  
+  /* Titres et badges d'icône */
+  .card-title {
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
+  .icon-badge {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(124,58,237,0.22), rgba(34,211,238,0.18));
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), background .3s, border-color .3s;
+  }
+  .card:hover .icon-badge { transform: translateY(-2px) rotate(4deg); border-color: rgba(255,255,255,0.32); }
+  
+  /* Chips de techno */
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+  .chip {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .35rem .6rem; font-size: .80rem; border-radius: 999px;
+    color: #E5E7EB;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    transition: background .3s, border-color .3s, transform .2s;
+  }
+  .chip:hover { background: rgba(124,58,237,0.20); border-color: rgba(139,92,246,0.55); transform: translateY(-1px); }
+  
+  /* Liste plus claire */
+  .card p, .card li { color: #cfd3da; }
+  
+  /* CTA service: flèche qui glisse */
+  .service-cta {
+    display: inline-flex; align-items: center; gap: .5rem;
+    color: #a7e8f2; transition: transform .25s, color .25s;
+  }
+  .card:hover .service-cta { transform: translateX(4px); color: #ffffff; }
+  
+  /* Séparateur doux */
+  .card hr {
+    border: none; height: 1px; margin: .75rem 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+  }
+
+
+  /* ——— À propos modernisé ——— */
+.about-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(6px);
+  }
+  .about-halo {
+    position: absolute; inset: -15%;
+    pointer-events: none;
+    background:
+      radial-gradient(600px 220px at 70% 0%, rgba(124,58,237,0.25), transparent 70%),
+      radial-gradient(480px 220px at 10% 20%, rgba(34,211,238,0.20), transparent 70%);
+    filter: blur(8px);
+  }
+  
+  /* Badges */
+  .badge-soft {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .35rem .65rem; font-size: .82rem; border-radius: 999px;
+    color: #E5E7EB; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+  }
+  
+  /* Liste icônes */
+  .list-icon li { display:flex; gap:.6rem; align-items:flex-start; color:#cfd3da; }
+  .list-icon i { color:#22D3EE; margin-top:.15rem; }
+  
+  /* KPIs */
+  .kpi-card {
+    border-radius: 16px; padding: 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.10);
+    text-align: center;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s;
+  }
+  .kpi-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
+  .kpi-num { font-size: 1.9rem; line-height: 1.1; font-weight: 700; }
+  .kpi-label { font-size:.85rem; color:#A1A1AA; margin-top:.25rem; }
+  .text-gradient {
+    background: linear-gradient(90deg, #7C3AED, #22D3EE);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  
+  /* Timeline */
+  .timeline { position: relative; margin-top: .5rem; }
+  .timeline::before {
+    content: ""; position: absolute; left: .6rem; top: .3rem; bottom: .3rem;
+    width: 2px; background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.06));
+  }
+  .timeline-item { position: relative; display: grid; grid-template-columns: 1.8rem 1fr; gap: .6rem; padding-left: .2rem; }
+  .timeline-item + .timeline-item { margin-top: .8rem; }
+  .timeline-item .dot {
+    width: .8rem; height: .8rem; border-radius: 999px; margin-top: .2rem;
+    background: linear-gradient(180deg, #7C3AED, #22D3EE);
+    border: 2px solid rgba(255,255,255,0.35);
+  }
+  .timeline-title { font-weight: 600; }
+  .timeline-text { color:#cfd3da; }
+  
+  
+
   

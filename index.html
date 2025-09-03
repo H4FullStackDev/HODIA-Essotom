@@ -11,6 +11,12 @@
   <meta property="og:description" content="La résilience c'est transformer chaque défi en opportunité." />
   <meta property="og:image" content="assets/og/og-preview.png" />
   <meta name="theme-color" content="#0B1220" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/h4techno-icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/h4techno-icon-16.png">
+<link rel="icon" href="assets/icons/h4techno-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/h4techno-icon-180.png">
+<link rel="shortcut icon" href="assets/icons/h4techno-icon.ico">
+
 
   <!-- Fonts (Space Grotesk + Inter) -->
   <link href="https://fonts.bunny.net/css?family=space-grotesk:400,500,600,700|inter:400,500,600,700" rel="stylesheet" />
@@ -116,9 +122,25 @@
       <div>
         <p class="text-brand-cyan text-sm font-medium mb-3 tracking-wide" data-i18n="hero_tag">Développeur Full-Stack</p>
         <h1 class="font-display text-4xl md:text-5xl font-semibold leading-tight">
-          <span data-i18n="hero_title_1" data-intro data-animate="fade-up" >Spring Boot, Angular, PostgreSQL.</span><br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet to-brand-cyan" data-i18n="hero_title_2" data-intro data-animate="fade-up" data-delay="120">Des applis stables, rapides et maintenables.</span>
-        </h1>
+            <span
+              class="typer"
+              data-typer
+              data-type-speed="24"
+              data-i18n="hero_title_1"
+              data-intro
+              data-animate="fade-up"
+            >Spring Boot, Angular, PostgreSQL.</span><br>
+            <span
+              class="typer text-transparent bg-clip-text bg-gradient-to-r from-brand-violet to-brand-cyan"
+              data-typer
+              data-type-speed="24"
+              data-i18n="hero_title_2"
+              data-intro
+              data-animate="fade-up"
+              data-delay="120"
+            >Des applis stables, rapides et maintenables.</span>
+          </h1>
+          
         <p class="mt-5 text-text-muted max-w-xl" data-i18n="hero_sub">
           La résilience c'est transformer chaque défi en opportunité.
         </p>
@@ -142,133 +164,269 @@
       <div class="relative">
         <div class="absolute -inset-4 rounded-3xl blur-3xl bg-gradient-to-tr from-brand-violet/30 to-brand-cyan/30"></div>
         <div class="relative glass rounded-3xl p-2">
-          <img src="assets/profile.webp" alt="HODIA Essotom" class="rounded-2xl w-full object-cover aspect-[4/4.3]">
+          <img src="assets/profil.jpeg" alt="HODIA Essotom" class="rounded-2xl w-full object-cover aspect-[4/4.3]">
         </div>
       </div>
     </div>
   </section>
 
   <!-- À propos -->
-  <section id="about" class="py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10 items-start">
-      <div class="md:col-span-1">
-        <h2 class="font-display text-2xl" data-i18n="about_title">À propos</h2>
-        <p class="text-text-muted mt-2" data-i18n="about_tag">Qui je suis et ce que je fais</p>
+  <section id="about" class="py-20 border-t border-white/5 bg-gradient-to-b from-white/0 to-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-10 items-start">
+      
+      <!-- Colonne visuel -->
+      <div class="md:col-span-5 relative" data-animate="fade-right">
+        <div class="about-card relative rounded-3xl overflow-hidden">
+          <div class="about-halo"></div>
+          <img src="assets/profil.jpeg" alt="HODIA Essotom" class="w-full aspect-[4/4.6] object-cover">
+        </div>
+  
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="badge-soft">
+            <i class="ri-map-pin-2-line"></i> <span data-i18n="about_badge_location">Lomé, Togo</span>
+          </span>
+          <span class="badge-soft">
+            <i class="ri-time-line"></i> <span data-i18n="about_badge_experience">2 ans d’expérience</span>
+          </span>
+          <span class="badge-soft">
+            <i class="ri-verified-badge-line"></i> <span data-i18n="about_badge_available">Freelance</span>
+          </span>
+        </div>
       </div>
-      <div class="md:col-span-2 space-y-4 leading-relaxed text-text">
-        <p data-i18n="about_p1">
+  
+      <!-- Colonne contenu -->
+      <div class="md:col-span-7 space-y-6" data-animate="fade-up">
+        <div>
+          <h2 class="font-display text-2xl" data-i18n="about_title">À propos</h2>
+          <p class="text-text-muted mt-1" data-i18n="about_tag">Qui je suis et ce que je fais</p>
+        </div>
+  
+        <!-- Paragraphes i18n (réutilise tes clés existantes) -->
+        <p class="leading-relaxed" data-i18n="about_p1">
           Je m’appelle HODIA Essotom, développeur d’applications avec 2 ans d’expérience. Je conçois des logiciels modernes avec Spring Boot et Angular.
         </p>
-        <p data-i18n="about_p2">
+        <p class="leading-relaxed" data-i18n="about_p2">
           J’ai contribué à Compta Pro Art, utilisé par des milliers d’utilisateurs en Afrique, et j’évolue chez DATA School (Data24, Maroc) sur une plateforme de gestion scolaire adoptée par plus de 100 établissements.
         </p>
-        <p data-i18n="about_p3">
+        <p class="leading-relaxed" data-i18n="about_p3">
           J’interviens sur l’analyse des besoins, le développement, la maintenance et l’évolution continue, avec un souci de performance, sécurité et lisibilité du code.
         </p>
+  
+        <!-- Liste icônes -->
+        <ul class="list-icon space-y-2">
+          <li><i class="ri-stack-line"></i> <span data-i18n="about_list_stack">Stack coeur: Spring Boot, Angular, PostgreSQL</span></li>
+          <li><i class="ri-shield-keyhole-line"></i> <span data-i18n="about_list_priorities">Priorités: performance, sécurité, code propre</span></li>
+          <li><i class="ri-team-line"></i> <span data-i18n="about_list_team">Habitué aux cycles agile, CI, revues de code</span></li>
+        </ul>
+  
+        <!-- KPIs -->
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="kpi-card">
+            <div class="kpi-num text-gradient" data-prefix="+" data-counter="100" data-suffix="K">0</div>
+            <div class="kpi-label" data-i18n="about_kpi_schools">Utilisateurs</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-num text-gradient" data-counter="2">0</div>
+            <div class="kpi-label" data-i18n="about_kpi_years">Années d’expérience</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-num text-gradient" data-counter="4">0</div>
+            <div class="kpi-label" data-i18n="about_kpi_projects">Projets majeurs</div>
+          </div>
+        </div>
+  
+        <!-- Timeline -->
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <div class="timeline-title" data-i18n="about_t1_title">DATA School (Data24)</div>
+              <p class="timeline-text" data-i18n="about_t1_text">
+                Maintenance & évolution sur une plateforme de gestion scolaire (Spring Boot, Angular, PostgreSQL, Docker).
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <div class="timeline-title" data-i18n="about_t2_title">Compta Pro Art</div>
+              <p class="timeline-text" data-i18n="about_t2_text">
+                Application de comptabilité simplifiée (Django REST, Angular).
+              </p>
+            </div>
+          </div>
+        </div>
+  
+    
       </div>
     </div>
   </section>
+  
+  
 
   <!-- Compétences -->
   <section id="skills" class="py-20 border-t border-white/5">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="font-display text-2xl" data-i18n="skills_title">Compétences</h2>
-          <p class="text-text-muted" data-i18n="skills_tag">Technos que j’utilise au quotidien</p>
+          <h2 class="font-display text-2xl">Compétences</h2>
+          <p class="text-text-muted">Technos que j’utilise au quotidien</p>
         </div>
       </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-animate="fade-up" data-stagger-group="skills">
+  
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Frontend -->
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-3" data-i18n="skills_front">Frontend</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>Angular · TypeScript · HTML/CSS</li>
-          </ul>
-        </div>
-
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Frontend</h3>
+            <span class="icon-badge"><i class="ri-braces-line"></i></span>
+          </div>
+          <p>Interfaces rapides, accessibles, responsive.</p>
+          <div class="chips">
+            <span class="chip"><i class="ri-angularjs-line"></i> Angular</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">HTML/CSS</span>
+          </div>
+        </article>
+  
         <!-- Backend -->
-        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
-          <h3 class="font-display mb-3" data-i18n="skills_back">Backend</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>Spring Boot · Django REST · NestJS · Java · Python · JavaScript</li>
-          </ul>
-        </div>
-
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Backend</h3>
+            <span class="icon-badge"><i class="ri-cpu-line"></i></span>
+          </div>
+          <p>APIs robustes, sécurisées, testables.</p>
+          <div class="chips">
+            <span class="chip">Spring Boot</span>
+            <span class="chip">Django REST</span>
+            <span class="chip">NestJS</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">JavaScript</span>
+          </div>
+        </article>
+  
         <!-- Bases de données -->
-        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
-          <h3 class="font-display mb-3" data-i18n="skills_db">Bases de données</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>PostgreSQL · MySQL · MongoDB · SQL</li>
-          </ul>
-        </div>
-
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Bases de données</h3>
+            <span class="icon-badge"><i class="ri-database-2-line"></i></span>
+          </div>
+          <p>Modélisation claire, requêtes propres, perfs OK.</p>
+          <div class="chips">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">SQL</span>
+          </div>
+        </article>
+  
         <!-- Outils -->
-        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
-          <h3 class="font-display mb-3" data-i18n="skills_tools">Outils</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>Git · Docker</li>
-          </ul>
-        </div>
-
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Outils</h3>
+            <span class="icon-badge"><i class="ri-tools-line"></i></span>
+          </div>
+          <p>Flux dev efficaces et reproductibles.</p>
+          <div class="chips">
+            <span class="chip">Git</span>
+            <span class="chip">Docker</span>
+          </div>
+        </article>
+  
         <!-- Langues -->
-        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
-          <h3 class="font-display mb-3" data-i18n="skills_lang">Langues</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>Français, Anglais</li>
-          </ul>
-        </div>
-
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Langues</h3>
+            <span class="icon-badge"><i class="ri-translate-2"></i></span>
+          </div>
+          <div class="chips">
+            <span class="chip">Français</span>
+            <span class="chip">Anglais</span>
+          </div>
+        </article>
+  
         <!-- Intérêts -->
-        <div class="glass p-6 rounded-2xl" data-animate="fade-up" data-stagger-group="skills">
-          <h3 class="font-display mb-3" data-i18n="skills_hobby">Centres d’intérêt</h3>
-          <ul class="space-y-2 text-text-muted">
-            <li>Sport · Lecture · Musique</li>
-          </ul>
-        </div>
+        <article class="card" data-animate="fade-up" data-stagger-group="skills">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="card-title">Centres d’intérêt</h3>
+            <span class="icon-badge"><i class="ri-heart-2-line"></i></span>
+          </div>
+          <div class="chips">
+            <span class="chip">Sport</span>
+            <span class="chip">Lecture</span>
+            <span class="chip">Musique</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+  
 
   <!-- Services -->
   <section id="services" class="py-20 border-t border-white/5">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="font-display text-2xl" data-i18n="services_title">Services</h2>
-          <p class="text-text-muted" data-i18n="services_tag">Ce que je peux faire pour vous</p>
+          <h2 class="font-display text-2xl">Services</h2>
+          <p class="text-text-muted">Ce que je peux faire pour vous</p>
         </div>
       </div>
-
+  
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-2" data-i18n="s1_title">Conception d’applications modernes</h3>
-          <p class="text-text-muted" data-i18n="s1_desc">De l’idée au déploiement, avec une architecture claire et des tests.</p>
-        </div>
-
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-2" data-i18n="s2_title">Sites web modernes</h3>
-          <p class="text-text-muted" data-i18n="s2_desc">Sites vitrines rapides, accessibles et responsive.</p>
-        </div>
-
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-2" data-i18n="s3_title">Montage vidéo</h3>
-          <p class="text-text-muted" data-i18n="s3_desc">Mises en forme propres pour présentations et réseaux.</p>
-        </div>
-
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-2" data-i18n="s4_title">Conception de logos</h3>
-          <p class="text-text-muted" data-i18n="s4_desc">Wordmarks simples et identités minimales pour démarrer vite.</p>
-        </div>
-
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="font-display mb-2" data-i18n="s5_title">Installation & maintenance</h3>
-          <p class="text-text-muted" data-i18n="s5_desc">Mise en place et suivi des outils informatiques.</p>
-        </div>
+        <article class="card" data-animate="fade-up" data-stagger-group="services">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="icon-badge"><i class="ri-rocket-2-line"></i></span>
+            <h3 class="card-title">Applications modernes</h3>
+          </div>
+          <p>De l’idée au déploiement. Architecture claire, tests, CI/CD.</p>
+          <hr>
+          <a class="service-cta" href="#contact"><span>Discuter</span><i class="ri-arrow-right-line"></i></a>
+        </article>
+  
+        <article class="card" data-animate="fade-up" data-stagger-group="services">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="icon-badge"><i class="ri-window-line"></i></span>
+            <h3 class="card-title">Sites web modernes</h3>
+          </div>
+          <p>Vitrines rapides, SEO de base, accessibilité, responsive.</p>
+          <hr>
+          <a class="service-cta" href="#contact"><span>Obtenir un devis</span><i class="ri-arrow-right-line"></i></a>
+        </article>
+  
+        <article class="card" data-animate="fade-up" data-stagger-group="services">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="icon-badge"><i class="ri-scissors-cut-line"></i></span>
+            <h3 class="card-title">Montage vidéo</h3>
+          </div>
+          <p>Coupe propre pour présentations et réseaux sociaux.</p>
+          <hr>
+          <a class="service-cta" href="#contact"><span>En parler</span><i class="ri-arrow-right-line"></i></a>
+        </article>
+  
+        <article class="card" data-animate="fade-up" data-stagger-group="services">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="icon-badge"><i class="ri-shapes-line"></i></span>
+            <h3 class="card-title">Conception de logos</h3>
+          </div>
+          <p>Wordmarks et identités minimales pour démarrer vite.</p>
+          <hr>
+          <a class="service-cta" href="#contact"><span>Voir des exemples</span><i class="ri-arrow-right-line"></i></a>
+        </article>
+  
+        <article class="card" data-animate="fade-up" data-stagger-group="services">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="icon-badge"><i class="ri-settings-5-line"></i></span>
+            <h3 class="card-title">Installation & maintenance</h3>
+          </div>
+          <p>Mise en place, MAJ, support et suivi de vos outils.</p>
+          <hr>
+          <a class="service-cta" href="#contact"><span>Prendre contact</span><i class="ri-arrow-right-line"></i></a>
+        </article>
       </div>
     </div>
   </section>
+  
 
   <!-- Projets -->
   <section id="projects" class="py-20 border-t border-white/5">
@@ -283,7 +441,7 @@
       <div class="grid md:grid-cols-2 gap-6">
         <!-- Compta Pro Art -->
         <article class="glass rounded-2xl overflow-hidden" data-animate="fade-right">
-          <img src="assets/projects/compta-1.webp" alt="Compta Pro Art" class="w-full h-56 object-cover">
+          <img src="assets/projects/compta.png" alt="Compta Pro Art" class="w-full h-56 object-cover">
           <div class="p-6 space-y-3">
             <h3 class="font-display text-xl">Compta Pro Art</h3>
             <p class="text-text-muted text-sm" data-i18n="p1_desc">
@@ -303,7 +461,7 @@
 
         <!-- DATA School -->
         <article class="glass rounded-2xl overflow-hidden" data-animate="fade-left">
-          <img src="assets/projects/dataschool-1.webp" alt="DATA School" class="w-full h-56 object-cover">
+          <img src="assets/projects/data.png" alt="DATA School" class="w-full h-56 object-cover">
           <div class="p-6 space-y-3">
             <h3 class="font-display text-xl">DATA School</h3>
             <p class="text-text-muted text-sm" data-i18n="p2_desc">
@@ -324,7 +482,7 @@
 
         <!-- Requisition Management -->
         <article class="glass rounded-2xl overflow-hidden" data-animate="fade-right">
-          <img src="assets/projects/req-1.webp" alt="Requisition Management" class="w-full h-56 object-cover">
+          <img src="assets/projects/requisition.PNG" alt="Requisition Management" class="w-full h-56 object-cover">
           <div class="p-6 space-y-3">
             <h3 class="font-display text-xl">Requisition Management</h3>
             <p class="text-text-muted text-sm" data-i18n="p3_desc">
@@ -343,7 +501,7 @@
 
         <!-- Smart Design Service -->
         <article class="glass rounded-2xl overflow-hidden" data-animate="fade-left">
-          <img src="assets/projects/sds-1.webp" alt="Smart Design Service" class="w-full h-56 object-cover">
+          <img src="assets/projects/smart.png" alt="Smart Design Service" class="w-full h-56 object-cover">
           <div class="p-6 space-y-3">
             <h3 class="font-display text-xl">Smart Design Service</h3>
             <p class="text-text-muted text-sm" data-i18n="p4_desc">
