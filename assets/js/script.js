@@ -12,16 +12,50 @@
       root.classList.toggle('dark');
     });
 
-    // Mailto form
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const fd = new FormData(e.target);
-      const name = encodeURIComponent(fd.get('name'));
-      const email = encodeURIComponent(fd.get('email'));
-      const subject = encodeURIComponent(fd.get('subject'));
-      const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${fd.get('message')}`);
-      window.location.href = `mailto:dimitrihodia0@gmail.com?subject=${subject}&body=${body}`;
-    });
+    // 2.b — Mailto propre avec formatage lisible
+const CONTACT_TO = "dimitrihodia0@gmail.com";
+
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const fd = new FormData(e.target);
+  // anti-bot
+  if (fd.get("company")) return;
+
+  const name = (fd.get("name") || "").trim();
+  const email = (fd.get("email") || "").trim();
+  const phone = (fd.get("phone") || "").trim();
+  const subject = (fd.get("subject") || "").trim();
+  const message = (fd.get("message") || "").trim();
+
+  // Sujet + corps formatés
+  const subj = `[Portfolio] ${subject || "Nouveau message"} — ${name || "Visiteur"}`;
+  const lines = [
+    `Nom: ${name}`,
+    `Email: ${email}`,
+    phone ? `Téléphone: ${phone}` : null,
+    "",
+    "Message:",
+    message,
+    "",
+    `---`,
+    `Page: ${location.href}`,
+    `Langue: ${lang.toUpperCase()}`,
+    `Date: ${new Date().toLocaleString()}`
+  ].filter(Boolean);
+
+  const body = lines.join("\n");
+
+  // Construire le lien mailto
+  const href =
+    `mailto:${encodeURIComponent(CONTACT_TO)}?` +
+    `subject=${encodeURIComponent(subj)}&` +
+    `body=${encodeURIComponent(body)}`;
+
+  // Ouvre le client mail
+  window.location.href = href;
+});
+
 
     // i18n
     let lang = 'fr';
@@ -65,6 +99,14 @@
         about_t1_text: "Maintenance & évolution sur une plateforme de gestion scolaire (Spring Boot, Angular, PostgreSQL, Docker).",
         about_t2_title: "Compta Pro Art",
         about_t2_text: "Application de comptabilité simplifiée (Django REST, Angular).",
+        f_phone: "Téléphone",
+        ph_name: "Nom complet (ex. HODIA Essotom)",
+        ph_email: "Email professionnel (ex. contact@h4techno.com)",
+        ph_phone: "Téléphone (optionnel)",
+        ph_subject: "Objet (ex. Demande de devis — application web)",
+        ph_message: "Décrivez votre besoin, votre délai et un budget indicatif…",
+        f_note: "Le bouton ouvre votre client mail (mailto). Si rien ne se passe, écrivez à dimitrihodia0@gmail.com."
+
 
       },
       en: {
@@ -107,6 +149,14 @@
         about_t1_text: "Maintenance & evolution on a school management platform (Spring Boot, Angular, PostgreSQL, Docker).",
         about_t2_title: "Compta Pro Art",
         about_t2_text: "Simplified accounting app (Django REST, Angular).",
+        f_phone: "Phone",
+        ph_name: "Full name (e.g., HODIA Essotom)",
+        ph_email: "Professional email (e.g., contact@h4techno.com)",
+        ph_phone: "Phone (optional)",
+        ph_subject: "Subject (e.g., Web app quote request)",
+        ph_message: "Describe your need, timeline and an indicative budget…",
+        f_note: "This opens your mail client (mailto). If nothing happens, write to dimitrihodia0@gmail.com."
+
 
       }
     };
@@ -122,6 +172,7 @@
     document.getElementById('langBtn').addEventListener('click', () => {
       lang = lang === 'fr' ? 'en' : 'fr';
       applyI18n();
+      applyPlaceholdersI18n();
     });
 
     applyI18n();
@@ -165,6 +216,12 @@
       });
   })();
 
+  function applyPlaceholdersI18n() {
+    document.querySelectorAll("[data-ph-i18n]").forEach(el => {
+      const key = el.getAttribute("data-ph-i18n");
+      if (T[lang] && T[lang][key]) el.setAttribute("placeholder", T[lang][key]);
+    });
+  }
 
   // === Typewriter util ===
   function typeIt(el, text, { speed = 24, startDelay = 0 } = {}) {
